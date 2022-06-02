@@ -1,0 +1,10 @@
+pipelines:
+  - name: approval_gates
+    steps:
+      - name: approval_test
+        type: Bash
+        configuration:
+          requiresApproval: true
+        execution:
+          onExecute:
+            - echo "someboody approved this"
