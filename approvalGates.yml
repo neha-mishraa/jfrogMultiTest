@@ -15,6 +15,46 @@ pipelines:
             approvers:
               - vootla
               - admin
+              - vootla
+              - admin
+              - vootla
+              - admin
+              - vootla
+              - admin
+              - vootla
+              - admin
+              - vootla
+              - admin
+              - vootla
+              - admin
+              - vootla
+              - admin
+              - vootla
+              - admin
+              - vootla
+              - admin
+              - vootla
+              - admin
+              - vootla
+              - admin
+              - vootla
+              - admin
+              - vootla
+              - admin
+              - vootla
+              - admin
+              - vootla
+              - admin
+              - vootla
+              - admin
+              - vootla
+              - admin
+              - vootla
+              - admin
+              - vootla
+              - admin
+              - vootla
+              - admin
           inputSteps:
             - name: random_approval_test
         execution:
