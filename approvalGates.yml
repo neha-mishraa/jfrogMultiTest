@@ -60,3 +60,17 @@ pipelines:
         execution:
           onExecute:
             - echo "someboody approved this"
+      - name: short_approvers_list
+        type: Bash
+        configuration:
+          requiresApproval:
+            approvers:
+              - vootla
+              - admin
+              - vootla
+              - admin
+          inputSteps:
+            - name: specific_approval_test
+        execution:
+          onExecute:
+            - echo "someboody approved this"
