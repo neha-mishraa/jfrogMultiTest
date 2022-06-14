@@ -13,48 +13,27 @@ pipelines:
         configuration:
           requiresApproval:
             approvers:
-              - vootla
+              - vootlac
               - admin
-              - vootla
+              - vootlac
               - admin
-              - vootla
+              - vootlac
               - admin
-              - vootla
+              - vootlac
               - admin
-              - vootla
+              - vootlac
               - admin
-              - vootla
+              - vootlac
               - admin
-              - vootla
+              - vootlac
               - admin
-              - vootla
+              - vootlac
               - admin
-              - vootla
+              - vootlac
               - admin
-              - vootla
+              - vootlac
               - admin
-              - vootla
-              - admin
-              - vootla
-              - admin
-              - vootla
-              - admin
-              - vootla
-              - admin
-              - vootla
-              - admin
-              - vootla
-              - admin
-              - vootla
-              - admin
-              - vootla
-              - admin
-              - vootla
-              - admin
-              - vootla
-              - admin
-              - vootla
-              - admin
+              - vootlac
           inputSteps:
             - name: random_approval_test
         execution:
@@ -65,9 +44,9 @@ pipelines:
         configuration:
           requiresApproval:
             approvers:
-              - vootla
+              - vootlac
               - admin
-              - vootla
+              - vootlac
               - admin
           inputSteps:
             - name: specific_approval_test
