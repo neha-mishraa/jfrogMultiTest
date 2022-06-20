@@ -1,17 +1,8 @@
-resources:
-  - name: testTrigger
-    type: GitRepo
-    configuration:
-      gitProvider: git
-      path: ChaitanyaVootla/jfrogMultiTest
 pipelines:
   - name: download_report
     steps:
       - name: trigger_2
         type: Bash
-        configuration:
-          inputResources:
-            - name: testTrigger
         execution:
           onExecute:
             - printenv
