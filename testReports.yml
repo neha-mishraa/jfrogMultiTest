@@ -5,9 +5,6 @@ pipelines:
         type: Bash
         execution:
           onExecute:
-            - printenv
-            - echo "done"
-            - write_output propertyCanvas "description=\"hello world\""
             - add_pipeline_variables prev_runid=$run_id
             - touch testreport.xml
             - save_tests testreport.xml
