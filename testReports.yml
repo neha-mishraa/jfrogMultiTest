@@ -15,3 +15,13 @@ pipelines:
         execution:
           onExecute:
             - save_tests $res_testTrigger_resourcePath/utils/
+      - name: no_test_reports_1
+        type: Bash
+        execution:
+          onExecute:
+            - echo "done"
+      - name: no_test_reports_2
+        type: Bash
+        execution:
+          onExecute:
+            - echo "done"
