@@ -14,5 +14,11 @@ pipelines:
             - name: testTrigger
         execution:
           onExecute:
-            - echo "state=pipeline2" > cache.txt
+            - echo "<testsuite tests="3">
+                  <testcase classname="foo1" name="ASuccessfulTest"/>
+                  <testcase classname="foo2" name="AnotherSuccessfulTest"/>
+                  <testcase classname="foo3" name="AFailingTest">
+                      <failure type="NotEnoughFoo"> details about failure </failure>
+                  </testcase>
+                </testsuite>" > cache.txt
             - save_tests cache.txt
