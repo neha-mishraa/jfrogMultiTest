@@ -21,7 +21,7 @@ pipelines:
             - write_output runTracker "runId=$run_id"
   - name: resource_update2
     steps:
-      - name: resource_update_2
+      - name: resource_update_test_number_2
         type: Bash
         configuration:
           outputResources:
