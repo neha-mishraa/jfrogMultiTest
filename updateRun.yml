@@ -8,6 +8,9 @@ pipelines:
     steps:
       - name: trigger_2
         type: Bash
+        configuration:
+          inputResources:
+            - name: runTracker
         execution:
           onExecute:
             - write_output runTracker "pipelines=$run_number"
