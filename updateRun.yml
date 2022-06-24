@@ -10,7 +10,7 @@ resources:
 pipelines:
   - name: resource_update
     steps:
-      - name: trigger_2
+      - name: resource_update_1
         type: Bash
         configuration:
           outputResources:
@@ -21,7 +21,7 @@ pipelines:
             - write_output runTracker "runId=$run_id"
   - name: resource_update2
     steps:
-      - name: trigger_2
+      - name: resource_update_2
         type: Bash
         configuration:
           outputResources:
