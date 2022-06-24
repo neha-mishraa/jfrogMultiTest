@@ -1,0 +1,13 @@
+resources:
+  - name: runTracker
+    type: PropertyBag
+    configuration:
+      Hello: World
+pipelines:
+  - name: download_report
+    steps:
+      - name: trigger_2
+        type: Bash
+        execution:
+          onExecute:
+            - write_output runTracker "pipelines=$run_number"
