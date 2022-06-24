@@ -26,6 +26,8 @@ pipelines:
         configuration:
           outputResources:
             - name: runTracker
+          inputSteps:
+            - name: resource_update
         execution:
           onExecute:
             - write_output runTracker2 "pipelines=$run_number"
