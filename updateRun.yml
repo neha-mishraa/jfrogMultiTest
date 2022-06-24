@@ -10,7 +10,7 @@ resources:
 pipelines:
   - name: resource_update
     steps:
-      - name: trigger_2
+      - name: resource_update_test_number
         type: Bash
         configuration:
           outputResources:
@@ -27,7 +27,7 @@ pipelines:
           outputResources:
             - name: runTracker
           inputSteps:
-            - name: trigger_2
+            - name: resource_update_test_number
         execution:
           onExecute:
             - write_output runTracker2 "pipelines=$run_number"
