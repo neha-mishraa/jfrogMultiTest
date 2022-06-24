@@ -23,7 +23,7 @@ pipelines:
         type: Bash
         configuration:
           outputResources:
-            - name: runTracker
+            - name: runTracker2
           inputSteps:
             - name: resource_update_test_number
         execution:
