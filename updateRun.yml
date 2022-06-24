@@ -4,7 +4,7 @@ resources:
     configuration:
       Hello: World
 pipelines:
-  - name: download_report
+  - name: resource_update
     steps:
       - name: trigger_2
         type: Bash
