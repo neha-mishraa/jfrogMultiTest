@@ -10,6 +10,8 @@ resources:
     type: BuildInfo
     configuration:
       sourceArtifactory: art
+      buildName: buildsplayground
+      buildNumber: ${run_number}
   - name: promote_buildInfo
     type: BuildInfo
     configuration:
