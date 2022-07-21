@@ -37,7 +37,7 @@ pipelines:
         type: DockerPush
         configuration:
           affinityGroup: docker_group
-          targetRepository: buildsplayground
+          targetRepository: http://192.168.50.4:8082/artifactory/buildsplayground/
           autoPublishBuildInfo: true
           integrations:
             - name: art
