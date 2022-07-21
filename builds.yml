@@ -1,0 +1,51 @@
+resources:
+  - name: buildGitRepo
+    type: GitRepo
+    configuration:
+      gitProvider: git
+      path: ChaitanyaVootla/jfrogMultiTest
+      branches:
+        include: main
+  - name: publish_buildInfo
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art
+  - name: promote_buildInfo
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art
+
+pipelines:
+  - name: builds_playground
+    steps:
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: docker_group
+          dockerFileLocation: .
+          dockerFileName: Dockerfile
+          dockerImageName: buildsPlayground/test
+          dockerImageTag: ${run_number}
+          inputResources:
+            - name: buildGitRepo
+          integrations:
+            - name: art
+
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          affinityGroup: docker_group
+          targetRepository: art
+          integrations:
+            - name: art
+          inputSteps:
+            - name: docker_build
+
+      - name: publish_app_build
+        type: PublishBuildInfo
+        configuration:
+          affinityGroup: docker_group
+          inputSteps:
+            - name: docker_push
+          outputResources:
+            - name: app_buildinfo
