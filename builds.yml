@@ -24,7 +24,7 @@ pipelines:
           affinityGroup: docker_group
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: buildsPlayground/test
+          dockerImageName: buildsplayground/test
           dockerImageTag: ${run_number}
           inputResources:
             - name: buildGitRepo
