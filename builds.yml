@@ -2,7 +2,7 @@ resources:
   - name: buildGitRepo
     type: GitRepo
     configuration:
-      gitProvider: git
+      gitProvider: vootla_git
       path: ChaitanyaVootla/jfrogMultiTest
       branches:
         include: main
