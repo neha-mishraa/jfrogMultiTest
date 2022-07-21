@@ -46,31 +46,20 @@ pipelines:
           outputResources:
             - name: publish_buildInfo
 
-      - name: docker_build2
-        type: DockerBuild
+      - name: bash_builds
+        type: Bash
         configuration:
-          affinityGroup: docker_group
-          dockerFileLocation: utils
-          dockerFileName: Dockerfile
-          dockerImageName: stg-repo.jfrog.info/buildsplayground/testimages
-          dockerImageTag: ${run_number}-build2
-          inputResources:
-            - name: buildGitRepo
           integrations:
             - name: artVootla
+        execution:
+          onExecute:
+            - touch test.txt
+            - echo "Hello World" > test.txt
+            - cat test.txt
+            - save_artifact_info 'file' './test.txt'
+            - save_artifact_info 'buildInfo' './test.txt' --build-name bash_builds_vootla --build-number ${run_number}
 
-      - name: docker_push2
-        type: DockerPush
-        configuration:
-          affinityGroup: docker_group
-          targetRepository: buildsplayground
-          autoPublishBuildInfo: true
-          integrations:
-            - name: artVootla
-          inputSteps:
-            - name: docker_build2
-          outputResources:
-            - name: publish_buildInfo
+
 
       # - name: publish_app_build
       #   type: PublishBuildInfo
