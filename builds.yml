@@ -58,7 +58,7 @@ pipelines:
             - touch test.txt
             - echo "Hello World" > test.txt
             - cat test.txt
-            - save_artifact_info 'file' './test.txt'
+            # - save_artifact_info 'file' './test.txt'
             - save_artifact_info 'buildInfo' './test.txt' --build-name bash_builds_vootla --build-number ${run_number}
 
 
