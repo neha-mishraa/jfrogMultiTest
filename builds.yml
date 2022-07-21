@@ -22,7 +22,7 @@ pipelines:
         type: DockerBuild
         configuration:
           affinityGroup: docker_group
-          dockerFileLocation: .
+          dockerFileLocation: utils
           dockerFileName: Dockerfile
           dockerImageName: buildsplayground/test
           dockerImageTag: ${run_number}
