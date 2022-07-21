@@ -27,7 +27,7 @@ pipelines:
           dockerFileLocation: utils
           dockerFileName: Dockerfile
           dockerImageName: stg-repo.jfrog.info/buildsplayground/testimages
-          dockerImageTag: ${run_number}
+          dockerImageTag: ${run_number}-build1
           inputResources:
             - name: buildGitRepo
           integrations:
@@ -43,6 +43,32 @@ pipelines:
             - name: artVootla
           inputSteps:
             - name: docker_build
+          outputResources:
+            - name: publish_buildInfo
+
+      - name: docker_build2
+        type: DockerBuild
+        configuration:
+          affinityGroup: docker_group
+          dockerFileLocation: utils
+          dockerFileName: Dockerfile
+          dockerImageName: stg-repo.jfrog.info/buildsplayground/testimages
+          dockerImageTag: ${run_number}-build2
+          inputResources:
+            - name: buildGitRepo
+          integrations:
+            - name: artVootla
+
+      - name: docker_push2
+        type: DockerPush
+        configuration:
+          affinityGroup: docker_group
+          targetRepository: buildsplayground
+          autoPublishBuildInfo: true
+          integrations:
+            - name: artVootla
+          inputSteps:
+            - name: docker_build2
           outputResources:
             - name: publish_buildInfo
 
