@@ -38,13 +38,13 @@ pipelines:
         configuration:
           affinityGroup: docker_group
           targetRepository: buildsplayground
-          # autoPublishBuildInfo: true
+          autoPublishBuildInfo: true
           integrations:
             - name: artVootla
           inputSteps:
             - name: docker_build
-          # outputResources:
-          #   - name: publish_buildInfo
+          outputResources:
+            - name: publish_buildInfo
 
       # - name: publish_app_build
       #   type: PublishBuildInfo
