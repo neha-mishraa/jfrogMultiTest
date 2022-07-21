@@ -25,7 +25,6 @@ pipelines:
           dockerFileLocation: utils
           dockerFileName: Dockerfile
           dockerImageName: buildsplayground/test
-          autoPublishBuildInfo: true
           dockerImageTag: ${run_number}
           inputResources:
             - name: buildGitRepo
