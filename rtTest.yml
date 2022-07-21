@@ -1,0 +1,11 @@
+pipelines:
+  - name: rt_playground
+    steps:
+      - name: rt_playground
+        type: Bash
+        configuration:
+          integrations:
+            - name: art
+        execution:
+          onExecute:
+            - echo "Hello World"
