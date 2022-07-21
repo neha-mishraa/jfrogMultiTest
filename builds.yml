@@ -25,6 +25,7 @@ pipelines:
           dockerFileLocation: utils
           dockerFileName: Dockerfile
           dockerImageName: buildsplayground/test
+          autoPublishBuildInfo: true
           dockerImageTag: ${run_number}
           inputResources:
             - name: buildGitRepo
@@ -35,17 +36,20 @@ pipelines:
         type: DockerPush
         configuration:
           affinityGroup: docker_group
-          targetRepository: art
+          targetRepository: buildsplayground
+          autoPublishBuildInfo: true
           integrations:
             - name: art
           inputSteps:
             - name: docker_build
-
-      - name: publish_app_build
-        type: PublishBuildInfo
-        configuration:
-          affinityGroup: docker_group
-          inputSteps:
-            - name: docker_push
           outputResources:
             - name: publish_buildInfo
+
+      # - name: publish_app_build
+      #   type: PublishBuildInfo
+      #   configuration:
+      #     affinityGroup: docker_group
+      #     inputSteps:
+      #       - name: docker_push
+      #     outputResources:
+      #       - name: publish_buildInfo
