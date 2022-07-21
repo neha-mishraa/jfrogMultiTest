@@ -51,6 +51,8 @@ pipelines:
         configuration:
           integrations:
             - name: artVootla
+          inputSteps:
+            - name: docker_build
         execution:
           onExecute:
             - touch test.txt
