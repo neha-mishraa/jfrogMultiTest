@@ -48,4 +48,4 @@ pipelines:
           inputSteps:
             - name: docker_push
           outputResources:
-            - name: app_buildinfo
+            - name: publish_buildInfo
