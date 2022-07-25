@@ -23,6 +23,7 @@ pipelines:
       - name: docker_push
         type: Bash
         configuration:
+          affinityGroup: docker_group
           integrations:
             - name: artVootla
           inputSteps:
