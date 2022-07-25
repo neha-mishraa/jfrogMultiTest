@@ -9,10 +9,6 @@ pipelines:
           dockerFileName: Dockerfile
           dockerImageName: stg-repo.jfrog.info/buildsplayground/testimages
           dockerImageTag: ${run_number}
-          inputResources:
-            - name: buildGitRepo
-          integrations:
-            - name: artVootla
 
       - name: docker_push
         type: Bash
