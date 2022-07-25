@@ -15,10 +15,11 @@ pipelines:
           affinityGroup: docker_group
           dockerFileLocation: utils
           dockerFileName: Dockerfile
-          dockerImageName: stg-repo.jfrog.info/testimages
+          dockerImageName: stg-repo.jfrog.info/buildsplayground/testimages
           dockerImageTag: ${run_number}
           inputResources:
             - name: rtBuildGitRepo
+              trigger: false
 
       - name: docker_push
         type: Bash
@@ -31,4 +32,4 @@ pipelines:
         execution:
           onExecute:
             - docker images
-            - jfrog rt dp stg-repo.jfrog.info/testimages:${run_number} buildsplayground
+            - jfrog rt dp stg-repo.jfrog.info/buildsplayground/testimages:${run_number} buildsplayground
