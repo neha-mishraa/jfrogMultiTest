@@ -15,7 +15,7 @@ pipelines:
           affinityGroup: docker_group
           dockerFileLocation: utils
           dockerFileName: Dockerfile
-          dockerImageName: stg-repo.jfrog.info/buildsplayground/testimages
+          dockerImageName: stg-repo.jfrog.info/testimages
           dockerImageTag: ${run_number}
           inputResources:
             - name: rtBuildGitRepo
