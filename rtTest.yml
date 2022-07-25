@@ -31,3 +31,4 @@ pipelines:
         execution:
           onExecute:
             - docker images
+            - jfrog rt dp stg-repo.jfrog.info/testimages:${run_number} buildsplayground
