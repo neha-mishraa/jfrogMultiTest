@@ -15,7 +15,7 @@ pipelines:
           affinityGroup: docker_group
           dockerFileLocation: utils
           dockerFileName: Dockerfile
-          dockerImageName: stg-repo.jfrog.info/buildsplayground/testimages
+          dockerImageName: jpd741896195.jfrogdev.org/buildsplayground/testimages
           dockerImageTag: ${run_number}
           inputResources:
             - name: rtBuildGitRepo
@@ -32,8 +32,8 @@ pipelines:
         execution:
           onExecute:
             - docker images
-            - echo "running - jfrog rt dp stg-repo.jfrog.info/buildsplayground/testimages:${run_number} buildsplayground --build-name=$pipeline_name --build-number=$run_number"
-            - jfrog rt dp stg-repo.jfrog.info/buildsplayground/testimages:${run_number} buildsplayground --build-name=$pipeline_name --build-number=$run_number
+            - echo "running - jfrog rt dp jpd741896195.jfrogdev.org/buildsplayground/testimages:${run_number} buildsplayground --build-name=$pipeline_name --build-number=$run_number"
+            - jfrog rt dp jpd741896195.jfrogdev.org/buildsplayground/testimages:${run_number} buildsplayground --build-name=$pipeline_name --build-number=$run_number
 
       - name: simple_artifact_push
         type: Bash
