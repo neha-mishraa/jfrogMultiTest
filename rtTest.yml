@@ -1,11 +1,24 @@
 pipelines:
   - name: rt_playground
     steps:
-      - name: rt_playground
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          affinityGroup: docker_group
+          dockerFileLocation: utils
+          dockerFileName: Dockerfile
+          dockerImageName: stg-repo.jfrog.info/buildsplayground/testimages
+          dockerImageTag: ${run_number}
+          inputResources:
+            - name: buildGitRepo
+          integrations:
+            - name: artVootla
+
+      - name: docker_push
         type: Bash
         configuration:
           integrations:
             - name: artVootla
         execution:
           onExecute:
-            - echo "Hello World"
+            - docker images
