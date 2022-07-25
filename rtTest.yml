@@ -1,3 +1,11 @@
+resources:
+  - name: rtBuildGitRepo
+    type: GitRepo
+    configuration:
+      gitProvider: vootla_git
+      path: ChaitanyaVootla/jfrogMultiTest
+      branches:
+        include: main
 pipelines:
   - name: rt_playground
     steps:
@@ -9,6 +17,8 @@ pipelines:
           dockerFileName: Dockerfile
           dockerImageName: stg-repo.jfrog.info/buildsplayground/testimages
           dockerImageTag: ${run_number}
+          inputResources:
+            - name: rtBuildGitRepo
 
       - name: docker_push
         type: Bash
