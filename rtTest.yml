@@ -46,4 +46,4 @@ pipelines:
           onExecute:
             - touch "build_${run_number}.txt"
             - echo "Hello World $run_number" > "build_${run_number}.txt"
-            - jfrog rt u "build_${run_number}.txt" buildsplayground/binaries/
+            - jfrog rt u "build_${run_number}.txt" buildsplayground/binaries/  --build-name=$pipeline_name --build-number=$run_number
