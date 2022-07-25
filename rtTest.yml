@@ -32,4 +32,4 @@ pipelines:
         execution:
           onExecute:
             - docker images
-            - jfrog rt dp stg-repo.jfrog.info/buildsplayground/testimages:${run_number} buildsplayground
+            - jfrog rt dp stg-repo.jfrog.info/buildsplayground/testimages:${run_number} buildsplayground --build-name=$pipeline_name --build-number=$run_number
