@@ -5,7 +5,7 @@ pipelines:
         type: Bash
         configuration:
           integrations:
-            - name: art
+            - name: artVootla
         execution:
           onExecute:
             - echo "Hello World"
