@@ -8,7 +8,7 @@ const testSuiteReport = {
   time: 100,
   suites: [
     {
-      name: "Some suite",
+      name: "Large Test suite (creator)",
       timestamp: new Date(Date.UTC(1989, 10, 3)),
       hostname: "some-hostname",
       time: 1.1337,
@@ -67,14 +67,6 @@ const testSuiteReport = {
           systemErr: ["Only error output"],
         },
       ],
-    },
-    {
-      name: "Suite without test cases",
-      testCases: [],
-    },
-    {
-      name: "Another suite",
-      testCases: [{ name: "Some successful test" }],
     },
   ],
 };

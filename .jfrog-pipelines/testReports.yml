@@ -25,7 +25,7 @@ pipelines:
             - echo "REPORTS_COUNT=$reportsCount" >> .env
             - cat .env
             - npm run test
-            - save_tests $res_testTrigger_resourcePath/junit.xml
+            - save_tests $res_testTrigger_resourcePath/
       - name: no_test_reports
         type: Bash
         configuration:

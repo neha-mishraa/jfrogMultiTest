@@ -1,7 +1,5 @@
 <testsuite tests="3" name="Test Test Suite">
-    <testcase classname="foo1" name="ASuccessfulTest"/>
-    <testcase classname="foo2" name="AnotherSuccessfulTest"/>
-    <testcase classname="foo3" name="AFailingTest">
+    <testcase classname="foo3" name="A Failing Test (pre-defined)">
         <failure type="NotEnoughFoo"> details about failure </failure>
     </testcase>
 </testsuite>
