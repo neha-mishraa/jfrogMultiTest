@@ -1,4 +1,4 @@
-<testsuite tests="3" name="Test Test Suite">
+<testsuite tests="3" name="A Failing Test Suite (pre-defined)">
     <testcase classname="foo3" name="A Failing Test (pre-defined)">
         <failure type="NotEnoughFoo"> details about failure </failure>
     </testcase>
