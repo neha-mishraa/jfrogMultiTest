@@ -12,6 +12,8 @@ pipelines:
         configuration:
           pipelineName: embed_target # required
           stepName: embed_target # required. will fail the step if ambiguous
+          integrations:
+            - name: pipAccess
           inputResources:
            - name: gitEmbed
         execution:
