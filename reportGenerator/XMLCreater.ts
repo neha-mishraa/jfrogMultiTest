@@ -1,9 +1,11 @@
 import { getJunitXml } from "junit-xml";
 import fs from "fs";
 
+require('dotenv').config();
+
 const testSuiteReport = {
-  name: "Some test suite report name",
-  time: 4.2,
+  name: "Suites container",
+  time: 100,
   suites: [
     {
       name: "Some suite",
@@ -76,6 +78,16 @@ const testSuiteReport = {
     },
   ],
 };
+
+console.log(process.env.REPORTS_COUNT)
+for (let i = 0; i < (process.env.REPORTS_COUNT || 10000); i++) {
+    testSuiteReport.suites[0].testCases.push({
+        name: "Random test " + i,
+        assertions: 2,
+        classname: "successful-test-class",
+        time: 0.72,
+    });
+}
 
 const junitXml = getJunitXml(testSuiteReport);
 // write to a file in the current directory

@@ -4,6 +4,8 @@ resources:
     configuration:
       gitProvider: git
       path: ChaitanyaVootla/jfrogMultiTest
+      environmentVariables:
+        reportsCount: 10000
 pipelines:
   - name: test_reports
     steps:
@@ -16,17 +18,11 @@ pipelines:
           onExecute:
             - pushd $res_testTrigger_resourcePath
             - npm install
+            - touch .env
+            - echo "REPORTS_COUNT=$reportsCount" >> .env
             - npm run test
             - save_tests $res_testTrigger_resourcePath/junit.xml
-      - name: no_test_reports_1
-        type: Bash
-        configuration:
-          inputSteps:
-            - name: test_report
-        execution:
-          onExecute:
-            - echo "done"
-      - name: no_test_reports_2
+      - name: no_test_reports
         type: Bash
         configuration:
           inputSteps:

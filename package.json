@@ -10,7 +10,8 @@
     "url": "git+https://github.com/ChaitanyaVootla/jfrogMultiTest.git"
   },
   "dependencies": {
-    "junit-xml": "1.2.0"
+    "junit-xml": "1.2.0",
+    "dotenv": "16.0.3"
   },
   "devDependencies": {
     "@types/node": "^18.11.15",
