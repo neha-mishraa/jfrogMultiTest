@@ -17,7 +17,7 @@ pipelines:
             - pushd $res_testTrigger_resourcePath
             - npm install
             - npm run test
-            - save_tests $res_testTrigger_resourcePath/
+            - save_tests $res_testTrigger_resourcePath/junit.xml
       - name: no_test_reports_1
         type: Bash
         configuration:
