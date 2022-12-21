@@ -2,7 +2,7 @@ resources:
   - name: testTrigger
     type: GitRepo
     configuration:
-      gitProvider: git
+      gitProvider: vootla_git
       path: ChaitanyaVootla/jfrogMultiTest
 pipelines:
   - name: test_reports
