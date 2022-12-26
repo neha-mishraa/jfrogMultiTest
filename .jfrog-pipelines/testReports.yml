@@ -22,6 +22,7 @@ pipelines:
             - pushd $res_testTrigger_resourcePath
             - npm install
             - touch .env
+            - printenv
             - echo "REPORTS_COUNT=$reportsCount" >> .env
             - cat .env
             - npm run test

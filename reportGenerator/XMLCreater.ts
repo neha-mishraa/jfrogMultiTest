@@ -87,6 +87,7 @@ for (let i = 0; i < 100; i++) {
         ],
     });
 }
+console.log(testSuiteReport.suites.length);
 console.log(process.env.REPORTS_COUNT)
 for (let i = 0; i < (process.env.REPORTS_COUNT || 10000); i++) {
     testSuiteReport.suites[0].testCases.push({
