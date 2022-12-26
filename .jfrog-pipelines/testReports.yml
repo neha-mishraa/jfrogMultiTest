@@ -9,8 +9,8 @@ pipelines:
     configuration:
       environmentVariables:
         readOnly:
-          reportsCount: 1000
-          suitesCount: 1000
+          reportsCount: 900
+          suitesCount: 900
     steps:
       - name: test_report
         type: Bash
