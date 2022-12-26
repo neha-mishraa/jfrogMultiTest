@@ -9,7 +9,7 @@ const testSuiteReport = {
   time: 100,
   suites: [
     {
-      name: "Large Test suite (creator)",
+      name: "Mixed results suite",
       timestamp: new Date(Date.UTC(1989, 10, 3)),
       hostname: "some-hostname",
       time: 1.1337,
@@ -73,30 +73,22 @@ const testSuiteReport = {
 } as any;
 
 for (let i = 0; i < (process.env.SUITES_COUNT || 1000); i++) {
-    testSuiteReport.suites.push({
+    const newSuite = {
         name: "Test Suite no: " + i,
         timestamp: new Date(Date.UTC(1989, 10, 3)),
         hostname: "some-hostname " + i,
         time: 2,
-        testCases: [
-          {
-            name: "Successful test",
+        testCases: [] as any,
+    }
+    for (let i = 0; i < (process.env.REPORTS_COUNT || 1000); i++) {
+      newSuite.testCases.push({
+            name: "Random test " + i,
             assertions: 2,
             classname: "successful-test-class",
             time: 0.72,
-          },
-        ],
-    });
-}
-console.log(testSuiteReport.suites.length);
-console.log(process.env.REPORTS_COUNT)
-for (let i = 0; i < (process.env.REPORTS_COUNT || 1000); i++) {
-    testSuiteReport.suites[0].testCases.push({
-        name: "Random test " + i,
-        assertions: 2,
-        classname: "successful-test-class",
-        time: 0.72,
-    });
+        });
+    }
+    testSuiteReport.suites.push(newSuite);
 }
 
 const junitXml = getJunitXml(testSuiteReport);
