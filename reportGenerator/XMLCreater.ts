@@ -77,6 +77,14 @@ for (let i = 0; i < 100; i++) {
         timestamp: new Date(Date.UTC(1989, 10, 3)),
         hostname: "some-hostname " + i,
         time: 2,
+        testCases: [
+          {
+            name: "Successful test",
+            assertions: 2,
+            classname: "successful-test-class",
+            time: 0.72,
+          },
+        ],
     });
 }
 console.log(process.env.REPORTS_COUNT)
