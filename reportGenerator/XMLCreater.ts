@@ -72,7 +72,7 @@ const testSuiteReport = {
   ],
 } as any;
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < (process.env.SUITES_COUNT || 1000); i++) {
     testSuiteReport.suites.push({
         name: "Test Suite no: " + i,
         timestamp: new Date(Date.UTC(1989, 10, 3)),
@@ -90,7 +90,7 @@ for (let i = 0; i < 100; i++) {
 }
 console.log(testSuiteReport.suites.length);
 console.log(process.env.REPORTS_COUNT)
-for (let i = 0; i < (process.env.REPORTS_COUNT || 10000); i++) {
+for (let i = 0; i < (process.env.REPORTS_COUNT || 1000); i++) {
     testSuiteReport.suites[0].testCases.push({
         name: "Random test " + i,
         assertions: 2,

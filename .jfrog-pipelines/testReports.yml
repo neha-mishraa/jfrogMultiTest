@@ -8,9 +8,9 @@ pipelines:
   - name: test_reports
     configuration:
       environmentVariables:
-        reportsCount: 1000
         readOnly:
-          reportsCountTest: 1000
+          reportsCount: 1000
+          suitesCount: 1000
     steps:
       - name: test_report
         type: Bash
@@ -22,10 +22,8 @@ pipelines:
             - pushd $res_testTrigger_resourcePath
             - npm install
             - touch .env
-            - printenv
-            - echo "REPORTS_COUNT=$reportsCountTest" >> .env
-            - cat .env
-            - cat ./reportGenerator/XMLCreater.ts
+            - echo "REPORTS_COUNT=$reportsCount" >> .env
+            - echo "SUITES_COUNT=$suitesCount" >> .env
             - npm run test
             - save_tests $res_testTrigger_resourcePath/
       - name: no_test_reports
