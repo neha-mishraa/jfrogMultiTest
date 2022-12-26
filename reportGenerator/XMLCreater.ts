@@ -83,9 +83,9 @@ for (let i = 0; i < (process.env.SUITES_COUNT || 1000); i++) {
     for (let i = 0; i < (process.env.REPORTS_COUNT || 1000); i++) {
       newSuite.testCases.push({
             name: "Random test " + i,
-            assertions: 2,
-            classname: "successful-test-class",
-            time: 0.72,
+            assertions: 20,
+            classname: "successful-test-class" + i,
+            time: 1,
         });
     }
     testSuiteReport.suites.push(newSuite);
