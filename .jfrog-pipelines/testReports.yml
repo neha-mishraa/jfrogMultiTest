@@ -8,9 +8,9 @@ pipelines:
   - name: test_reports
     configuration:
       environmentVariables:
-        reportsCount: 10000
+        reportsCount: 1000
         readOnly:
-          reportsCountTest: 10000
+          reportsCountTest: 1000
     steps:
       - name: test_report
         type: Bash
@@ -23,7 +23,7 @@ pipelines:
             - npm install
             - touch .env
             - printenv
-            - echo "REPORTS_COUNT=$reportsCount" >> .env
+            - echo "REPORTS_COUNT=$reportsCountTest" >> .env
             - cat .env
             - npm run test
             - save_tests $res_testTrigger_resourcePath/

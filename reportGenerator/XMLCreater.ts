@@ -2,6 +2,7 @@ import { getJunitXml } from "junit-xml";
 import fs from "fs";
 
 require('dotenv').config();
+console.log("running test reports generator");
 
 const testSuiteReport = {
   name: "Suites container",
