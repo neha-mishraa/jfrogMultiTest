@@ -69,8 +69,16 @@ const testSuiteReport = {
       ],
     },
   ],
-};
+} as any;
 
+for (let i = 0; i < 100; i++) {
+    testSuiteReport.suites.push({
+        name: "Test Suite no: " + i,
+        timestamp: new Date(Date.UTC(1989, 10, 3)),
+        hostname: "some-hostname " + i,
+        time: 2,
+    });
+}
 console.log(process.env.REPORTS_COUNT)
 for (let i = 0; i < (process.env.REPORTS_COUNT || 10000); i++) {
     testSuiteReport.suites[0].testCases.push({
