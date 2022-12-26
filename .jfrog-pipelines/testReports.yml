@@ -25,6 +25,7 @@ pipelines:
             - printenv
             - echo "REPORTS_COUNT=$reportsCountTest" >> .env
             - cat .env
+            - cat ./reportGenerator/XMLCreater.ts
             - npm run test
             - save_tests $res_testTrigger_resourcePath/
       - name: no_test_reports
