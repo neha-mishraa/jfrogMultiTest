@@ -14,9 +14,9 @@ pipelines:
     steps:
       - name: test_report
         type: Bash
-        configuration:
-          inputResources:
-            - name: testTrigger
+        # configuration:
+        #   inputResources:
+        #     - name: testTrigger
         execution:
           onExecute:
             - pushd $res_testTrigger_resourcePath
