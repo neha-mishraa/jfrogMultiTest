@@ -26,6 +26,7 @@ pipelines:
             - echo "SUITES_COUNT=$suitesCount" >> .env
             - TOTAL_TESTS=$(($reportsCount*$suitesCount))
             - update_run_description "Total tests => $TOTAL_TESTS"
+            - set_run_name $TOTAL_TESTS
             - npm run test
             - save_tests $res_testTrigger_resourcePath/
       - name: no_test_reports
