@@ -37,33 +37,33 @@ pipelines:
         execution:
           onExecute:
             - echo "done"
-      - name: matrix_test_reports
-        type: Matrix
-        stepMode: Bash
-        configuration:
-          inputResources:
-            - name: testTrigger
-          inputSteps:
-            - name: test_report
-        stepletMultipliers:
-          environmentVariables:
-            - animal:    dog
-              mineral:   copper
-              vegetable: carrot
-            - animal:    goat
-              mineral:   iron
-              vegetable: broccoli
-            - animal:    lizard
-              mineral:   lead
-        execution:
-          onExecute:
-            - pushd $res_testTrigger_resourcePath
-            - npm install
-            - touch .env
-            - echo "REPORTS_COUNT=$reportsCount" >> .env
-            - echo "SUITES_COUNT=$suitesCount" >> .env
-            - TOTAL_TESTS=$(($reportsCount*$suitesCount))
-            - update_run_description "Total tests => $TOTAL_TESTS"
-            - set_run_name $TOTAL_TESTS
-            - npm run test
-            - save_tests $res_testTrigger_resourcePath/
+      # - name: matrix_test_reports
+      #   type: Matrix
+      #   stepMode: Bash
+      #   configuration:
+      #     inputResources:
+      #       - name: testTrigger
+      #     inputSteps:
+      #       - name: test_report
+      #   stepletMultipliers:
+      #     environmentVariables:
+      #       - animal:    dog
+      #         mineral:   copper
+      #         vegetable: carrot
+      #       - animal:    goat
+      #         mineral:   iron
+      #         vegetable: broccoli
+      #       - animal:    lizard
+      #         mineral:   lead
+      #   execution:
+      #     onExecute:
+      #       - pushd $res_testTrigger_resourcePath
+      #       - npm install
+      #       - touch .env
+      #       - echo "REPORTS_COUNT=$reportsCount" >> .env
+      #       - echo "SUITES_COUNT=$suitesCount" >> .env
+      #       - TOTAL_TESTS=$(($reportsCount*$suitesCount))
+      #       - update_run_description "Total tests => $TOTAL_TESTS"
+      #       - set_run_name $TOTAL_TESTS
+      #       - npm run test
+      #       - save_tests $res_testTrigger_resourcePath/
