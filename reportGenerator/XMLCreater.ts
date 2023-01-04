@@ -80,6 +80,9 @@ for (let i = 0; i < (process.env.SUITES_COUNT || 1000); i++) {
         time: 2,
         testCases: [] as any,
     }
+    if (process.env.STEPLET_NUMBER) {
+        newSuite.name = "Test Suite no: " + i + " steplet: " + process.env.STEPLET_NUMBER;
+    }
     for (let i = 0; i < (process.env.REPORTS_COUNT || 1000); i++) {
       newSuite.testCases.push({
             name: "Random test " + i,
