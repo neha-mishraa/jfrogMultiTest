@@ -1,7 +1,7 @@
 <testsuite tests="1" name="Russian doll lvl 1 (pre-defined)">
     <testsuite tests="1" name="Russian doll lvl 2 (pre-defined)">
         <testcase tests="1" name="Russian doll lvl 3 (pre-defined)">
-            <testcase tests="1" name="Russian doll lvl 4 (pre-defined)">
+            <testcase classname="foo3" name="Russian doll lvl 4 (pre-defined)">
                 <failure type="NotEnoughFoo"> Matryoshka </failure>
             </testcase>
         </testcase>
