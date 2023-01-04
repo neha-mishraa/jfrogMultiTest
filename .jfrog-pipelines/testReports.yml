@@ -41,6 +41,7 @@ pipelines:
         type: Matrix
         stepMode: Bash
         configuration:
+          multiNode: true
           inputResources:
             - name: testTrigger
           inputSteps:
