@@ -1,11 +1,11 @@
 resources:
-  - name: testTrigger
+  - name: testTriggerN
     type: GitRepo
     configuration:
       gitProvider: github_neha
       path: neha-mishraa/jfrogMultiTest
 pipelines:
-  - name: test_reports
+  - name: test_reportsN
     configuration:
       environmentVariables:
         readOnly:
@@ -16,10 +16,10 @@ pipelines:
         type: Bash
         configuration:
           inputResources:
-            - name: testTrigger
+            - name: testTriggerN
         execution:
           onExecute:
-            - pushd $res_testTrigger_resourcePath
+            - pushd $res_testTriggerN_resourcePath
             - npm install
             - touch .env
             - echo "REPORTS_COUNT=$reportsCount" >> .env
@@ -28,7 +28,7 @@ pipelines:
             - update_run_description "Total tests => $TOTAL_TESTS"
             - set_run_name $TOTAL_TESTS
             - npm run test
-            - save_tests $res_testTrigger_resourcePath/
+            - save_tests $res_testTriggerN_resourcePath/
       - name: no_test_reports
         type: Bash
         configuration:
@@ -43,7 +43,7 @@ pipelines:
         configuration:
           multiNode: true
           inputResources:
-            - name: testTrigger
+            - name: testTriggerN
           inputSteps:
             - name: test_report
         stepletMultipliers:
@@ -58,7 +58,7 @@ pipelines:
               mineral:   lead
         execution:
           onExecute:
-            - pushd $res_testTrigger_resourcePath
+            - pushd $res_testTriggerN_resourcePath
             - npm install
             - touch .env
             - echo "REPORTS_COUNT=$reportsCount" >> .env
@@ -68,4 +68,4 @@ pipelines:
             - update_run_description "Total tests => $TOTAL_TESTS"
             - set_run_name $TOTAL_TESTS
             - npm run test
-            - save_tests $res_testTrigger_resourcePath/
+            - save_tests $res_testTriggerN_resourcePath/
